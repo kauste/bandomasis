@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,11 +34,16 @@ Route::put('/hotel/edit/{hotel}', [HotelController::class, 'update'])->name('hot
 Route::get('/hotel/create', [HotelController::class, 'create'])->name('hotel-create');
 Route::post('/hotel/store', [HotelController::class, 'store'])->name('hotel-store');
 Route::delete('/hotel/delete/{hotel}', [HotelController::class, 'destroy'])->name('hotel-delete');
+//Orders
+Route::get('/all-orders', [OrderController::class, 'index'])->name('all-orders-list');
+Route::put('/change-state/{order}', [OrderController::class, 'changeState'])->name('change-state');
 });
 //Front
 Route::get('/front/hotel-list', [FrontController::class, 'show'])->name('front-hotel-list');
-
+Route::post('order-vacation/{hotel}', [OrderController::class, 'orderVacation'])->name('order-vacation');
+Route::get('/my-orders', [OrderController::class, 'myOrders'])->name('my-orders');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

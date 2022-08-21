@@ -28,11 +28,10 @@
                                 <td scope="row">{{$hotel->hotel_name}}</td>
                                 <td>{{$hotel->price}} eu.</td>
                                 <td>{{$hotel->duration}} days</td>
-                                <td>{{$hotel->country->country_name}}</td>
+                                <td>{{$hotel->country_name}}</td>
                             <td>
-                                <form class="delete" action="" method="post">
+                                <form action="{{route('order-vacation', $hotel)}}" method="post">
                                     @csrf
-                                    @method('post')
                                     <button type="submit" class="btn btn-outline-danger m-2">Order</button>
                                 </form>
                             </td>

@@ -158,9 +158,7 @@ class HotelController extends Controller
         }
         dump($hotel);
         $hotel->delete();
-
-
-
+        
         return redirect()->back()->with('mesage', 'Hotel have no photo now');
     }
 }

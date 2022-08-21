@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Faker\Factory as Faker;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -55,6 +56,16 @@ class DatabaseSeeder extends Seeder
         foreach($seazons as $seazon) {
             DB::table('seazons')->insert([
                 'seazon_name' => $seazon,
+            ]);
+        }
+
+        $faker = Faker::create('lt_LT');
+        foreach(range(1, 10) as $_){
+            DB::table('hotels')->insert([
+                'hotel_name' => $faker->firstNameFemale,
+                'price'=> rand(200, 999),
+                'duration' => rand(7,14),
+                'country_id'=> rand(0, count($countries)- 1)
             ]);
         }
     }

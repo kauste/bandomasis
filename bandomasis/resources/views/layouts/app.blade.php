@@ -65,7 +65,18 @@
                                 </a>
                             </div>
                         </li>
-                                                <li class="nav-item dropdown">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Orders
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('all-orders-list') }}">
+                                    All orders
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Hotels
                             </a>
@@ -93,6 +104,18 @@
 
                             </div>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false" v-pre>
+                                My orders
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('my-orders') }}">
+                                    My orders
+                                </a>
+
+                            </div>
+                        </li>
                         @endif
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -116,7 +139,7 @@
             </div>
         </nav>
         <main class="py-4">
-           @include('msg')
+            @include('msg')
             @yield('content')
         </main>
     </div>
